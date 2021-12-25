@@ -1,16 +1,17 @@
 const formRef = document.querySelector("#validation-input");
 console.log(formRef);
 
-const makeBlurInputStyle = () => {
-    if (formRef.dataset.length !== "6") {
-        formRef.classList.add("invalid");
+const makeBlurInputStyle = (event) => {
+    
+    if (event.currentTarget.dataset.length === "6") {
+       return event.currentTarget.classList.add("invalid");
         
     }
-    else if (formRef.dataset.length === "6") {
-        formRef.classList.add("valid");
-    }
+    event.currentTarget.dataset.length !== "6";
+        event.currentTarget.classList.toggle("valid");
+    
    
-    return formRef
+    return formRef;
    }
 
-formRef.addEventListener("blur", makeBlurInputStyle )
+formRef.addEventListener("blur", makeBlurInputStyle)
